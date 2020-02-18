@@ -2,7 +2,7 @@ Feature: Add product to cart
 
     Scenario: Verify address and verify shipping address
     When I open automationpractice website
-    And I login with username "abc@xyz.com" and password "Test@123"
+    And I login with username "suhas290@gmail.com" and password "open4all"
     And I hover on women menu item and click summer dresses
     And I add a summer dress to cart
     And verify the item and price

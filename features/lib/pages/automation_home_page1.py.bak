@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from .base_page_object import BasePage
+from base_page_object import BasePage
 
 
 class AutomationHomePage1(BasePage):
@@ -16,7 +16,7 @@ class AutomationHomePage1(BasePage):
             base_url='http://www.seleniumframework.com/')
 
     def apple(self):
-        print(self.find_element(*self.startButton_loc).click())
+        print self.find_element(*self.startButton_loc).click()
 
 
     # def __getattr__(self, what):

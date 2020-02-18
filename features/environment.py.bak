@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 # If you don't see colors (RED and GREEN) on command line, add the below lines
 # from colorama import init
 # init()
@@ -29,9 +28,9 @@ def before_feature(context, feature):
 # Scenario level objects are popped off context when scenario exits
 
 def before_scenario(context, scenario):
-    print(("User data:", context.config.userdata))
+    print("User data:", context.config.userdata)
     # behave -D BROWSER=chrome
-    if 'BROWSER' in list(context.config.userdata.keys()):
+    if 'BROWSER' in context.config.userdata.keys():
         if context.config.userdata['BROWSER'] is None:
             BROWSER = 'chrome'
         else:
@@ -40,12 +39,7 @@ def before_scenario(context, scenario):
         BROWSER = 'chrome'
     # For some reason, python doesn't have switch case -
     # http://stackoverflow.com/questions/60208/replacements-for-switch-statement-in-python
-    if BROWSER == 'chrome' and context.config.userdata['HEADLESS']=='True':
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--window-size=1920x1080")
-        context.browser = webdriver.Chrome(chrome_options=chrome_options)
-    elif BROWSER == 'chrome':
+    if BROWSER == 'chrome':
         context.browser = webdriver.Chrome()
     elif BROWSER == 'firefox':
         context.browser = webdriver.Firefox()
@@ -58,28 +52,28 @@ def before_scenario(context, scenario):
     elif BROWSER == 'phantomjs':
         context.browser = webdriver.PhantomJS()
     else:
-        print(("Browser you entered:", BROWSER, "is invalid value"))
+        print("Browser you entered:", BROWSER, "is invalid value")
 
     context.browser.maximize_window()
     print("Before scenario\n")
 
 
 def after_scenario(context, scenario):
-    print("scenario status" + str(scenario.status))
-    if str(scenario.status) == "failed":
+    print("scenario status" + scenario.status)
+    if scenario.status == "failed":
         if not os.path.exists("failed_scenarios_screenshots"):
             os.makedirs("failed_scenarios_screenshots")
         os.chdir("failed_scenarios_screenshots")
-        context.browser.save_screenshot(str(scenario.name) + "_failed.png")
+        context.browser.save_screenshot(scenario.name + "_failed.png")
     context.browser.quit()
 
 def after_feature(context, feature):
-    print("\nAfter Feature")
+            print("\nAfter Feature")
 
 def after_all(context):
-    print(("User data:", context.config.userdata))
+    print("User data:", context.config.userdata)
     # behave -D ARCHIVE=Yes
-    if 'ARCHIVE' in list(context.config.userdata.keys()):
+    if 'ARCHIVE' in context.config.userdata.keys():
         if os.path.exists("failed_scenarios_screenshots"):
             os.rmdir("failed_scenarios_screenshots")
             os.makedirs("failed_scenarios_screenshots")

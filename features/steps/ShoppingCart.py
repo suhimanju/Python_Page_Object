@@ -14,8 +14,8 @@ def step_impl(context):
 @step('I login with username "([^"]*)" and password "([^"]*)"')
 def step_impl(context,username,password):
     page = LoginPage(context)
-    page.email.send_keys("abc@xyz.com")
-    page.password.send_keys("Test@123")
+    page.email.send_keys("suhas290@gmail.com")
+    page.password.send_keys("open4all")
     page.signin_button.click()
     # page.login(username=username,passwd=password)
 

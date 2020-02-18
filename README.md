@@ -1,15 +1,12 @@
 # Python Behave Page Object Pattern
 Selenium webdriver , python , behave  
-Tested on Python 2.7.10 & 3.4.2 and all libraries installed with the pip that came with 3.4.2  
+Tested on Python 3.8.1 and all libraries installed with the pip that came with 3.8.1
 
 # Index  
 [What are Frameworks](http://www.seleniumframework.com/python-frameworks/what-are-frameworks/)  
 [Roadmap & Future State](http://www.seleniumframework.com/python-frameworks/road-map-and-future-state/)  
 [Behave Project Structure](http://www.seleniumframework.com/python-frameworks/behave-project-structure/)  
-[What is Page Object](http://www.seleniumframework.com/python-frameworks/what-is-page-object/)  
-[Base Page Object](http://www.seleniumframework.com/python-frameworks/what-is-base-page/)  
-[Modeling Page Objects](http://www.seleniumframework.com/python-frameworks/modeling-page-objects/)  
-[Implement Page Object Pattern](http://www.seleniumframework.com/python-frameworks/implement-page-object-pattern/)  
+[What is behave framework](http://www.seleniumframework.com/python-basic/what-is-behave/)
 [Complete Shopping Cart Workflow - Realtime project](http://www.seleniumframework.com/python-frameworks/complete-the-workflow/) 
 
 # Website
@@ -19,7 +16,7 @@ All of our tutorials on Ruby, Java, Python strive towards minimizing the languag
 # Usage  
 1. If you do not know how to use git, click "Download zip" option at right corner  
 2. For Git users, git clone  
-3. Install Python 2.7 or higher. Follow this [ Install Python ](http://www.seleniumframework.com/python-basic/what-is-python/)  
+3. Install Python 3.5 or higher. Follow this [ Install Python ](http://www.seleniumframework.com/python-basic/what-is-python/)  
 4. Install behave. Follow this [ Install behave ] (http://www.seleniumframework.com/python-basic/what-is-behave/) 
 5. Complete installing Selenium webdriver components
 6. Open a shell/command prompt and from the root folder run "behave features --no-capture"  

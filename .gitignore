@@ -1,9 +1,10 @@
-/.idea/
+__pycache__/
+.idea/
 *.log
-/failed_scenarios_screenshots/*
-/*.zip
+failed_scenarios_screenshots/*
+*.zip
 *.html
 *.pyc
 *.exe
-/*.json
+*.json
 reports

@@ -29,9 +29,9 @@ def before_feature(context, feature):
 # Scenario level objects are popped off context when scenario exits
 
 def before_scenario(context, scenario):
-    print(("User data:", context.config.userdata))
+    print("User data:", context.config.userdata)
     # behave -D BROWSER=chrome
-    if 'BROWSER' in list(context.config.userdata.keys()):
+    if 'BROWSER' in context.config.userdata.keys():
         if context.config.userdata['BROWSER'] is None:
             BROWSER = 'chrome'
         else:
@@ -40,11 +40,16 @@ def before_scenario(context, scenario):
         BROWSER = 'chrome'
     # For some reason, python doesn't have switch case -
     # http://stackoverflow.com/questions/60208/replacements-for-switch-statement-in-python
-    if BROWSER == 'chrome' and context.config.userdata['HEADLESS']=='True':
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--window-size=1920x1080")
-        context.browser = webdriver.Chrome(chrome_options=chrome_options)
+    if(('HEADLESS' in context.config.userdata.keys()) and BROWSER == 'chrome'):
+        print(context.config.userdata['HEADLESS'])
+        if (context.config.userdata['HEADLESS'].lower()) == 'true':
+            chrome_options = Options()
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--window-size=1920x1080")
+            context.browser = webdriver.Chrome(chrome_options=chrome_options)
+        else:
+            context.browser = webdriver.Chrome()
+
     elif BROWSER == 'chrome':
         context.browser = webdriver.Chrome()
     elif BROWSER == 'firefox':
